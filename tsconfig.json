@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    // куда производится сборка, в данном случае не важна, т.к. сборка производится webpack
+    "outDir": "./dist/",
+    // подсвечивает все места, где не указан тип
+    "noImplicitAny": true,
+    // указывает вариант модульной сборки
+    "module": "ESNext",
+    // версия стандарта, в которую код будет компилироваться
+    "target": "es5",
+    "jsx": "react",
+    // позволяет компилятору обрабатывать не только TS файлы, но и JS
+    "allowJs": true,
+    // определяет какие импорты будут
+    "moduleResolution": "node",
+    // esModuleInterop позволяет работать с пакетами, которые используют common js (require(), module.exports)
+    // как с побычными пакетами с помощью import
+    // import Moment from 'moment';
+    // console.log(Moment);
+    // без флага esModuleInterop результат underfind
+    // с флагом результат [object Object]
+    "esModuleInterop": true,
+    // если какая-либо библиотека не имеет default import,
+    // лоадеры вроде ts-loader или babel-loader автоматически создают их
+    // вместо такого импорта import * as React from 'react';
+    // можно писать такой
+    // import React from 'react'
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
