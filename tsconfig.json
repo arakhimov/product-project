@@ -20,7 +20,7 @@
     // без флага esModuleInterop результат underfind
     // с флагом результат [object Object]
     "esModuleInterop": true,
-    // если какая-либо библиотека не имеет default import,
+    // если какая-либо библиотека не имеет default export,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их
     // вместо такого импорта import * as React from 'react';
     // можно писать такой
