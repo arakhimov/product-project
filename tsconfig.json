@@ -1,30 +1,33 @@
 {
   "compilerOptions": {
-    // куда производится сборка, в данном случае не важна, т.к. сборка производится webpack
     "outDir": "./dist/",
-    // подсвечивает все места, где не указан тип
+    // Подсвечивает все места где не указан тип
+    // Однако это не означает, что теперь вовсе нельзя использовать any.
+    // Это означает лишь, что в подобных ситуация разработчик должен явно писать any,
     "noImplicitAny": true,
-    // указывает вариант модульной сборки
-    "module": "ESNext",
-    // версия стандарта, в которую код будет компилироваться
+    "module": "esnext",
+    // В какую спецификацию компилируем: для поддержки большинства браузеров
     "target": "es5",
-    "jsx": "react",
-    // позволяет компилятору обрабатывать не только TS файлы, но и JS
+    "jsx": "react-jsx",
+    // Компилятор будет обрабатывать не только TS файлы, но и JS файлы
     "allowJs": true,
-    // определяет какие импорты будут
     "moduleResolution": "node",
-    // esModuleInterop позволяет работать с пакетами, которые используют common js (require(), module.exports)
-    // как с побычными пакетами с помощью import
+    // Для абсолютного импорта
+    "baseUrl": ".",
+    // esModuleInterop позволяет работать с пакетами, которые используют
+    // common js как с обычными пакета с помощью import (require() module.export) = common js
     // import Moment from 'moment';
+    // без флага esModuleInterop результат undefined
     // console.log(Moment);
-    // без флага esModuleInterop результат underfind
-    // с флагом результат [object Object]
+    // c флагом результат [object Object]
+    // console.log(Moment);
     "esModuleInterop": true,
-    // если какая-либо библиотека не имеет default export,
+    // Если какая-либо библиотека не имеет default import,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их
-    // вместо такого импорта import * as React from 'react';
+    // вместо такого импорта
+    // import * as React from 'react';
     // можно писать такой
-    // import React from 'react'
+    // import React from 'react';
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {

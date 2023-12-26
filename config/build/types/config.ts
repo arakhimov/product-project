@@ -3,6 +3,11 @@
 
 export type BuildMode = 'production' | 'development';
 
+export interface BuildEnvVar {
+    mode: BuildMode,
+    port: number
+}
+
 export interface BuildPath {
     // путь до entry point
     entry: string,
@@ -14,5 +19,6 @@ export interface BuildPath {
 export  interface BuildOptions {
     mode: BuildMode,
     paths: BuildPath,
-    isDev: boolean
+    isDev: boolean,
+    port: number
 }
